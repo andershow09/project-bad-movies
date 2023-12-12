@@ -1,0 +1,7 @@
+{
+  "name": "projectbadmovies",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

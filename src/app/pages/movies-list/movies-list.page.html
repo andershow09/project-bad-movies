@@ -1,0 +1,67 @@
+<div class="ion-page" id="main-content">
+  <ion-header [translucent]="true" color="primary">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ title }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only" (click)="showFilter = !showFilter">
+          <ion-icon name="funnel-outline" slot="start"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar *ngIf="showFilter">
+      <ion-card>
+        <ion-card-content>
+          <ion-radio-group value="undefined" (ionChange)="handleChange($event)" value="end">
+            <ion-radio value="undefined" labelPlacement="end" selected="true">Ambas</ion-radio><br />
+            <ion-radio value="true" labelPlacement="end">Foi Vencedor</ion-radio><br />
+            <ion-radio value="false" labelPlacement="end">Não foi Vencedor</ion-radio><br />
+          </ion-radio-group>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-list>
+        <ion-item id="open-modal">
+          <ion-label>Filtrar por ano</ion-label>
+          <ion-datetime-button slot="end" datetime="datetime"></ion-datetime-button>
+        </ion-item>
+        <ion-popover #popover [isOpen]="isPopoverOpen" [keepContentsMounted]="true">
+          <ng-template>
+            <app-popover-content>
+              <ion-datetime #datePicker id="datetime" presentation="year" [showDefaultButtons]="true" doneText="OK"
+                cancelText="Cancelar"></ion-datetime>
+            </app-popover-content>
+          </ng-template>
+        </ion-popover>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" (click)="resetFilters()">Resetar Filtros</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="full" (click)="applyFilters()">Aplicar Filtros</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+      <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
+    </ion-list>
+    <ion-card *ngIf="movies.length === 0" class="card-no-data">
+      <ion-card-header class="ion-text-center">
+        <ion-icon class="icon_card_no_data" name="sad-outline" size="large"></ion-icon>
+        Desculpe, não há filmes disponíveis para o filtro aplicado.
+      </ion-card-header>
+    </ion-card>
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+</div>
