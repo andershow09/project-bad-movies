@@ -22,31 +22,31 @@ Overall, this app aims to provide users with a comprehensive and user-friendly p
 
 ## Installation
 
-Step 1: Install Ionic CLI
-`npm install -g @ionic/cli`
-Step 2: Install Dependecies
+Step 1: Install Ionic CLI  
+`npm install -g @ionic/cli`  
+Step 2: Install Dependecies  
 `npm install`
 
 ## Usage
 
 ### Run
 
-Step 1: Build the App
-`ionic build`
-Step 2: Run the App in Android
-`npx cap open android`
-Step 3: Run the App in iOS
+Step 1: Build the App  
+`ionic build`  
+Step 2: Run the App in Android  
+`npx cap open android`  
+Step 3: Run the App in iOS  
 `npx cap open ios`
 
-Or you can use the follow code to run:
+Or you can use the follow code to run:  
 `ionic capacitor run android | ios`
 
 ### Testing
 
-You can use the follow code to test:
+You can use the follow code to test:  
 `npm test`
 
 ### Deploy
 
-You can use the follow code to deply the app:
+You can use the follow code to deply the app:  
 `npx ionic build  --configuration=production && npx cap copy`
