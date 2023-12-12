@@ -14,8 +14,17 @@ Overall, this app aims to provide users with a comprehensive and user-friendly p
 
 ## Screens
 
+### Android
+
 ![Android Screen Capture 01](/captures/screen_android01.png)
 ![Android Screen Capture 02](/captures/screen_android02.png)
+
+### iOS
+
+![iOS Screen Capture 01](/captures/screen_ios1.png)
+![iOS Screen Capture 02](/captures/screen_ios2.png)
+![iOS Screen Capture 03](/captures/screen_ios3.png)
+![iOS Screen Capture 04](/captures/screen_ios4.png)
 
 ## Table of Contents
 
