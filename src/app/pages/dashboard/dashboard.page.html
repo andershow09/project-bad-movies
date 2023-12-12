@@ -1,0 +1,80 @@
+<ion-header [translucent]="true" color="primary">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ dashboard.cardYearsMultiple.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="dashboard.cardYearsMultiple.content.length > 0">
+      <ion-item *ngFor="let item of dashboard.cardYearsMultiple.content">
+        <ion-label>Ano: {{ item.year }}</ion-label>
+        <ion-label>Vencedores: {{ item.winnerCount }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ dashboard.cardTop3.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="dashboard.cardTop3.content.length > 0">
+      <ion-item *ngFor="let item of dashboard.cardTop3.content">
+        <ion-label>Estúdio: {{ item.name }}</ion-label>
+        <ion-label> {{ item.winCount }} vitórias</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ dashboard.cardInterval.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="card_custom">
+      <ion-card-header class="card_header">
+        <ion-card-title>Maior Intervalo</ion-card-title>
+      </ion-card-header>
+      <ion-item>
+        <ion-label>Produtor: {{ dashboard.cardInterval.content.max[0].producer
+          }}</ion-label>
+        <ion-label>Intervalo : {{ dashboard.cardInterval.content.max[0].interval
+          }}</ion-label>
+        <ion-label>Ano Anterior : {{ dashboard.cardInterval.content.max[0].previousWin
+          }}</ion-label>
+        <ion-label>Ano Seguinte : {{
+          dashboard.cardInterval.content.max[0].followingWin}}</ion-label>
+      </ion-item>
+      <ion-card-header class="card_header">
+        <ion-card-title>Menor Intervalo</ion-card-title>
+      </ion-card-header>
+      <ion-item>
+        <ion-label>Produtor: {{ dashboard.cardInterval.content.min[0].producer
+          }}</ion-label>
+        <ion-label>Produtor: {{ dashboard.cardInterval.content.min[0].producer
+          }}</ion-label>
+        <ion-label>Intervalo : {{ dashboard.cardInterval.content.min[0].interval
+          }}</ion-label>
+        <ion-label>Ano Anterior : {{ dashboard.cardInterval.content.min[0].previousWin
+          }}</ion-label>
+        <ion-label>Ano Seguinte : {{
+          dashboard.cardInterval.content.min[0].followingWin}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ dashboard.cardWinnerByYear.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="dashboard.cardWinnerByYear.content.length > 0">
+      <ion-item *ngFor="let movie of dashboard.cardWinnerByYear.content">
+        <ion-label>{{ movie.id }} - {{ movie.title }}</ion-label>
+        <ion-label> Ano {{ movie.year }}</ion-label>
+        <ion-label> {{ movie.studios }} - {{ movie.producers }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

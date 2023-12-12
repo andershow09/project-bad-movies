@@ -1,0 +1,15 @@
+<ion-card *ngIf="movie">
+  <ion-card-header>
+    <ion-card-title> {{ movie.id }} - {{ movie.title }} </ion-card-title>
+    <ion-card-subtitle>Ano {{ movie.year }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ movie.studios }} - {{ movie.producers }}
+  </ion-card-content>
+  <ion-badge
+    color="{{ movie.winner ? 'success' : 'danger' }}"
+    class="badge-right"
+    >{{ movie.winner ? "Foi" : "Não" }} Vencedor
+  </ion-badge>
+</ion-card>
