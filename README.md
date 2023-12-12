@@ -21,6 +21,8 @@ Overall, this app aims to provide users with a comprehensive and user-friendly p
 
 ### iOS
 
+<img src="/captures/screen_ios1.png" width="200px">
+
 ![iOS Screen Capture 01](/captures/screen_ios1.png)
 ![iOS Screen Capture 02](/captures/screen_ios2.png)
 ![iOS Screen Capture 03](/captures/screen_ios3.png)
