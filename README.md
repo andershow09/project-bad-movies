@@ -12,6 +12,11 @@ The Movie List page allows users to explore and filter movies based on specific 
 
 Overall, this app aims to provide users with a comprehensive and user-friendly platform to explore and analyze the world of bad movies.
 
+## Screens
+
+![Android Screen Capture 01](/captures/screen_android01.png)
+![Android Screen Capture 02](/captures/screen_android02.png)
+
 ## Table of Contents
 
 - [Installation](#installation)
