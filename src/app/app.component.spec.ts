@@ -1,24 +1,10 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-
 import { AppComponent } from './app.component';
-import { addIcons } from 'ionicons';
-import {
-  barChartOutline,
-  barChartSharp,
-  videocamOutline,
-  videocamSharp,
-} from 'ionicons/icons';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AppComponent],
-    }).compileComponents();
-  });
 
   beforeEach(async () => {
     TestBed.overrideComponent(AppComponent, {
@@ -28,24 +14,24 @@ describe('AppComponent', () => {
     });
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should have pages defined', () => {
+  it('should create the app component', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should initialize the pages array', () => {
     expect(component.pages).toBeDefined();
-    expect(component.pages.length).toBeGreaterThan(0);
-  });
-
-  it('should add icons to Ionicons', () => {
-    expect(addIcons).toHaveBeenCalled();
-    expect(addIcons).toHaveBeenCalledWith({
-      barChartSharp: barChartSharp,
-      barChartOutline: barChartOutline,
-      videocamSharp: videocamSharp,
-      videocamOutline: videocamOutline,
-    });
+    expect(component.pages.length).toBe(2);
+    expect(component.pages[0].title).toBe('Dashboard');
+    expect(component.pages[0].icon).toBe('bar-chart');
+    expect(component.pages[0].url).toBe('/dashboard');
+    expect(component.pages[1].title).toBe('List');
+    expect(component.pages[1].icon).toBe('videocam');
+    expect(component.pages[1].url).toBe('/movies-list');
   });
 });

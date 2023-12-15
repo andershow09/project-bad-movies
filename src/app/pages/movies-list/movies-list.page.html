@@ -29,9 +29,7 @@
         </ion-item>
         <ion-popover #popover [isOpen]="isPopoverOpen" [keepContentsMounted]="true">
           <ng-template>
-            <app-popover-content>
-              <ion-datetime #datePicker id="datetime" presentation="year" [showDefaultButtons]="true"></ion-datetime>
-            </app-popover-content>
+            <ion-datetime #datePicker id="datetime" presentation="year" [showDefaultButtons]="true"></ion-datetime>
           </ng-template>
         </ion-popover>
         <ion-row>

@@ -11,9 +11,8 @@ describe('MovieComponent', () => {
   beforeEach(waitForAsync(() => {
     platformSpy = jasmine.createSpyObj('Platform', ['is']);
     TestBed.configureTestingModule({
-      declarations: [MovieComponent],
       providers: [{ provide: Platform, useValue: platformSpy }],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(), MovieComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MovieComponent);
