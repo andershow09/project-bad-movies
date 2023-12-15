@@ -8,28 +8,20 @@ describe('returnCards', () => {
   it('should return a dashboard with the correct cards', () => {
     const cardInterval = new Card(
       1,
-      'Produtores com maior e menor intervalo entre vitórias',
+      'Producers with longest and shortest interval between wins',
       {
         min: [new Producer()],
         max: [new Producer()],
       }
     );
-    const cardTop3 = new Card(2, 'Top 3 estúdios que mais venceram', [
+    const cardTop3 = new Card(2, 'Top 3 studios with winners', [
       { year: 0, winCount: 0 },
     ]);
-    const cardYearsMultiple = new Card(
-      3,
-      'Lista de anos com múltiplos vencedores',
-      {
-        year: 0,
-        winnerCount: 0,
-      }
-    );
-    const cardWinnerByYear = new Card(
-      4,
-      'Lista de filmes vencedores por ano',
-      {}
-    );
+    const cardYearsMultiple = new Card(3, 'List years with multiple winners', {
+      year: 0,
+      winnerCount: 0,
+    });
+    const cardWinnerByYear = new Card(4, 'List movie winners by year', {});
 
     const result = Dashboard.returnCards();
 
@@ -62,6 +54,7 @@ describe('DashboardPage', () => {
             'getProducersInterval',
           ]),
         },
+        MovieService,
       ],
     });
 

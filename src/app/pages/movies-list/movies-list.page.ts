@@ -130,6 +130,7 @@ export class MoviesListPage implements OnInit {
       );
     }
     this.movies = [];
+    this.page = 0;
     this.getMovies();
   }
 
@@ -144,8 +145,6 @@ export class MoviesListPage implements OnInit {
 
   //Detect event Oninfinit an request new Movies from new page
   onIonInfinite(ev: InfiniteScrollCustomEvent) {
-    console.log('Evento:', ev);
-
     //Check if is last page, and show message end of list
     if (!this.data.isLastPage()) {
       this.page++;

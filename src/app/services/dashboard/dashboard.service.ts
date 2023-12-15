@@ -32,7 +32,6 @@ export class DashboardService {
     };
 
     const response: HttpResponse = await CapacitorHttp.get(options);
-    console.log('resultGetAll', response);
     var result = [];
     if ((response.status = HttpStatusCode.Ok)) {
       result = response.data.studios;
@@ -48,7 +47,6 @@ export class DashboardService {
     };
 
     const response: HttpResponse = await CapacitorHttp.get(options);
-    console.log('resultGetAll', response);
     var result = [];
     if ((response.status = HttpStatusCode.Ok)) {
       result = response.data;

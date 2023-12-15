@@ -15,32 +15,31 @@
       <ion-card>
         <ion-card-content>
           <ion-radio-group value="undefined" (ionChange)="handleChange($event)" value="end">
-            <ion-radio value="undefined" labelPlacement="end" selected="true">Ambas</ion-radio><br />
-            <ion-radio value="true" labelPlacement="end">Foi Vencedor</ion-radio><br />
-            <ion-radio value="false" labelPlacement="end">Não foi Vencedor</ion-radio><br />
+            <ion-radio value="undefined" labelPlacement="end" selected="true">Both</ion-radio><br />
+            <ion-radio value="true" labelPlacement="end">Winner</ion-radio><br />
+            <ion-radio value="false" labelPlacement="end">Not Winner</ion-radio><br />
           </ion-radio-group>
         </ion-card-content>
       </ion-card>
 
       <ion-list>
         <ion-item id="open-modal">
-          <ion-label>Filtrar por ano</ion-label>
+          <ion-label>Filter by year</ion-label>
           <ion-datetime-button slot="end" datetime="datetime"></ion-datetime-button>
         </ion-item>
         <ion-popover #popover [isOpen]="isPopoverOpen" [keepContentsMounted]="true">
           <ng-template>
             <app-popover-content>
-              <ion-datetime #datePicker id="datetime" presentation="year" [showDefaultButtons]="true" doneText="OK"
-                cancelText="Cancelar"></ion-datetime>
+              <ion-datetime #datePicker id="datetime" presentation="year" [showDefaultButtons]="true"></ion-datetime>
             </app-popover-content>
           </ng-template>
         </ion-popover>
         <ion-row>
           <ion-col>
-            <ion-button expand="full" (click)="resetFilters()">Resetar Filtros</ion-button>
+            <ion-button expand="full" (click)="resetFilters()">Reset Filters</ion-button>
           </ion-col>
           <ion-col>
-            <ion-button expand="full" (click)="applyFilters()">Aplicar Filtros</ion-button>
+            <ion-button expand="full" (click)="applyFilters()">Apply Filters</ion-button>
           </ion-col>
         </ion-row>
       </ion-list>
@@ -57,7 +56,7 @@
     <ion-card *ngIf="movies.length === 0" class="card-no-data">
       <ion-card-header class="ion-text-center">
         <ion-icon class="icon_card_no_data" name="sad-outline" size="large"></ion-icon>
-        Desculpe, não há filmes disponíveis para o filtro aplicado.
+        Sorry, there are no more movies to be listed with the applied filters.
       </ion-card-header>
     </ion-card>
     <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Toast } from '@capacitor/toast';
 import {
   IonButtons,
   IonCard,
@@ -14,6 +15,10 @@ import {
   IonMenuButton,
   IonTitle,
   IonToolbar,
+  IonDatetimeButton,
+  IonDatetime,
+  IonPopover,
+  IonButton,
 } from '@ionic/angular/standalone';
 import { Dashboard } from 'src/app/models/dashboard/dashboard';
 import { Movie } from 'src/app/models/movie/movie';
@@ -40,6 +45,10 @@ import { MovieService } from 'src/app/services/movie/movie.service';
     IonItem,
     IonList,
     IonLabel,
+    IonDatetimeButton,
+    IonDatetime,
+    IonPopover,
+    IonButton,
   ],
 })
 export class DashboardPage implements OnInit {
@@ -55,6 +64,9 @@ export class DashboardPage implements OnInit {
     previousWin: 0,
     followingWin: 0,
   };
+  @ViewChild('datePicker', { static: false, read: IonDatetime })
+  datePicker: IonDatetime;
+  yearFilter: number = new Date().getFullYear();
 
   constructor() {}
 
@@ -69,9 +81,25 @@ export class DashboardPage implements OnInit {
       await this.dashboardService.getMoviesWithMultipleWinners();
     this.dashboard.cardTop3.content =
       await this.dashboardService.getMoviesCountByStudio();
-    this.dashboard.cardWinnerByYear.content =
-      await this.movieService.getWinnersByYear();
     this.dashboard.cardInterval.content =
       await this.dashboardService.getProducersInterval();
+  }
+
+  //Apply Filters selected
+  async applyFilters() {
+    if (this.datePicker.value) {
+      this.yearFilter = parseInt(
+        this.datePicker.value?.toString().substring(0, 4)
+      );
+    }
+
+    this.dashboard.cardWinnerByYear.content =
+      await this.movieService.getWinnersByYear(this.yearFilter);
+    if (this.dashboard.cardWinnerByYear.content.length === 0) {
+      Toast.show({
+        text: 'There are no movies for the applied filter.',
+        duration: 'short',
+      });
+    }
   }
 }

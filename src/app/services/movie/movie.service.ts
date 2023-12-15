@@ -19,7 +19,7 @@ export class MovieService {
    * @param {number} year - The year for which you want to obtain the winners..
    * @returns {Promise<Movie[]>} - A Promise with a Array of movie.
    */
-  public async getWinnersByYear(year: number = 2018): Promise<Movie[]> {
+  public async getWinnersByYear(year: number): Promise<Movie[]> {
     const options = {
       url: `${this.URL_BASE}&winner=true&year=${year}`,
     };

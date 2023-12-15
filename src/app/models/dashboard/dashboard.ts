@@ -12,18 +12,18 @@ export class Dashboard {
 
   static returnCards(): Dashboard {
     return new Dashboard(
-      new Card(1, 'Produtores com maior e menor intervalo entre vitórias', {
+      new Card(1, 'Producers with longest and shortest interval between wins', {
         min: [new Producer()],
         max: [new Producer()],
       }),
-      new Card(2, 'Top 3 estúdios que mais venceram', [
+      new Card(2, 'Top 3 studios with winners', [
         { year: 0, winCount: 0 },
       ]),
-      new Card(3, 'Lista de anos com múltiplos vencedores', {
+      new Card(3, 'List years with multiple winners', {
         year: 0,
         winnerCount: 0,
       }),
-      new Card(4, 'Lista de filmes vencedores por ano', {})
+      new Card(4, 'List movie winners by year', {})
     );
   }
 }

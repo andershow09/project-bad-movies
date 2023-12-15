@@ -49,7 +49,7 @@ import {
 export class AppComponent {
   pages = [
     { title: 'Dashboard', icon: 'bar-chart', url: '/dashboard' },
-    { title: 'Todos os Filmes', icon: 'videocam', url: '/movies-list' },
+    { title: 'List', icon: 'videocam', url: '/movies-list' },
   ];
   constructor() {
     addIcons({
